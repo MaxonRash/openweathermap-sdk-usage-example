@@ -14,3 +14,5 @@ Note: to be able to use dependency GitHub requires a private key to be set in `s
 ```
 
 To be able to see hints from source java docs you should download <a href="https://github.com/MaxonRash/openweathermap-sdk">source</a> project and select the folder as sources in your IDE
+
+Also, there is some logging present in SDK, so it should be easier to test and understand what's going on during execution
