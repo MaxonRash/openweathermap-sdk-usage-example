@@ -18,15 +18,19 @@ public class Example3 {
         try {
             sdk1.retrieveCurrentWeatherJSON("testtesttest");
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(e); // <---- shouldn't be thrown until there are changes in API responses
         } catch (InvalidApiKeyException e) {
-            System.out.println("API key is incorrect or not activated yet");;
+            System.out.println("API key is incorrect or not activated yet");
+            System.out.println(e.getMessage());
         } catch (CallPerMinuteExceededException e) {
-            System.out.println("You've exceeded the limit of requests per minute, try again later");;
+            System.out.println("You've exceeded the limit of requests per minute, try again later");
+            System.out.println(e.getMessage());
         } catch (InternalErrorException e) {
-            System.out.println("API server internal error (5** codes)");;
+            System.out.println("API server internal error (5** codes)");
+            System.out.println(e.getMessage());
         } catch (CityWithThisNameIsNotFoundException e) {
             System.out.println("Specified city is not found"); // <----- this will be printed if the key is present and valid
+            System.out.println(e.getMessage());; // <----- this will be printed if the key is present and valid
         }
     }
 }
